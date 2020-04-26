@@ -1,0 +1,21 @@
+openapi: "3.0.0"
+info:
+  title: AnyCtl
+  version: "1.0"
+servers:
+  - url: http://localhost/api/v1
+
+paths:
+  /version:
+    get:
+      summary: API Version
+      description: Show  API Version
+      operationId: anyctl.lib.version.get
+      responses:
+        200:
+          description: Show Version
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "0.0.1"
