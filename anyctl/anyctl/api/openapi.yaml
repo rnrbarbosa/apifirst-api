@@ -1,21 +1,42 @@
-openapi: "3.0.0"
+swagger: "2.0"
 info:
-  title: AnyCtl
-  version: "1.0"
-servers:
-  - url: http://localhost/api/v1
-
+  version: "1.0.0"
+  title: "Pet Store"
+basePath: "/api/v1"
+tags:
+  - name: "pet"
+schemes:
+  - "https"
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
 paths:
-  /version:
+  /pet/{pet_id}:
     get:
-      summary: API Version
-      description: Show  API Version
-      operationId: anyctl.lib.version.get
+      tags:
+        - "pet"
+      summary: "Get a pet in the store"
+      operationId: "get_pet"
+      parameters:
+        - name: "pet_id"
+          in: "path"
+          description: "The id of the pet to retrieve"
+          required: true
+          type: "integer"
       responses:
         200:
-          description: Show Version
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "0.0.1"
+          description: "Successfully retrived pet"
+        404:
+          description: "Pet doesn't exist"
+      x-swagger-router-controller: "controllers.pets_controller"
+  /pet:
+    get:
+      tags:
+        - "pet"
+      summary: "Gets all pets in the store"
+      operationId: "get_all_pets"
+      responses:
+        200:
+          description: "Successfully received all pets."
+      x-swagger-router-controller: "controllers.pets_controller"
