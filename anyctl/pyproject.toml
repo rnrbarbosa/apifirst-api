@@ -8,6 +8,8 @@ authors = ["Roberto Barbosa <rnrbarbosa@gmail.com>"]
 python = "^3.7"
 connexion = {extras = ["swagger-ui"], version = "^2.7.0"}
 swagger-ui = "^0.1.2"
+aiohttp = {extras = ["aiohttp_jinja2"], version = "^3.6.2"}
+aiohttp_jinja2 = "^1.2.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
