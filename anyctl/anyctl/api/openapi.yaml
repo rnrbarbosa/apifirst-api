@@ -29,7 +29,7 @@ paths:
           description: "Successfully retrived pet"
         404:
           description: "Pet doesn't exist"
-      x-swagger-router-controller: "controllers.pets_controller"
+      x-swagger-router-controller: "api.controllers.pets_controller"
   /pet:
     get:
       tags:
@@ -39,4 +39,4 @@ paths:
       responses:
         200:
           description: "Successfully received all pets."
-      x-swagger-router-controller: "controllers.pets_controller"
+      x-swagger-router-controller: "api.controllers.pets_controller"
